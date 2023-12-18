@@ -14,5 +14,5 @@ public class DepartmentDto {
 
     private String departmentName;
 
-    private BranchDto branchDto;
+
 }

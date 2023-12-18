@@ -21,6 +21,6 @@ public class Branch {
 
     private String branchName;
 
-    @OneToMany
+    @OneToMany(mappedBy = "branch")
     private List<Department> departments=new ArrayList<>();
 }

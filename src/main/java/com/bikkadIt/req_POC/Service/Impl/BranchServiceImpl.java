@@ -12,6 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -32,19 +33,16 @@ public class BranchServiceImpl implements BranchService {
         return this.modelMapper.map(save,BranchDto.class);
     }
 
-    @Transactional
-    public BranchDto createBranchWithDepartments(BranchDto branchDTO) {
-        Branch branch = new Branch();
-        branch.setBranchName(branchDTO.getBranchName());
+    @Override
+    public DepartmentDto createBranchWithDepartments(DepartmentDto departmentDto, Integer branchId) {
 
-        for (DepartmentDto departmentDTO : branchDTO.getDepartments()) {
-            Department department = new Department();
-            department.setDepartmentName(departmentDTO.getDepartmentName());
-            department.setBranch(branch);
-            branch.getDepartments().add(department);
-        }
+        Branch branch = branchRepository.findById(branchId).get();
+        Department department = this.modelMapper.map(departmentDto, Department.class);
+        department.setBranch(branch);
+        Department save = this.departmentRepository.save(department);
 
-        Branch save = branchRepository.save(branch);
-        return this.modelMapper.map(save,BranchDto.class);
+        return this.modelMapper.map(save, DepartmentDto.class);
     }
+
+
 }

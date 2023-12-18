@@ -5,4 +5,6 @@ import com.bikkadIt.req_POC.entities.Department;
 
 public interface DepartmentService {
     DepartmentDto createDepartment(DepartmentDto departmentDto);
+
+
 }
