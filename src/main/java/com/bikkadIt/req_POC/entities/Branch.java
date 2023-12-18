@@ -16,7 +16,8 @@ public class Branch {
 
 
     @Id
-    private String branchId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer branchId;
 
     private String branchName;
 

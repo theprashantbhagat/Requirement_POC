@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface EmployeeRepository extends JpaRepository<Employee,String> {
+public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
-    List<Employee> findByMgrId(String mgrId);
-    List<Employee> findByDepartment_DepartmentId(String departmentId);
+    List<Employee> findByMgrId(Integer mgrId);
+    List<Employee> findByDepartment_DepartmentId(Integer departmentId);
 }

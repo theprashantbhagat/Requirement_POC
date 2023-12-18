@@ -2,13 +2,13 @@ package com.bikkadIt.req_POC.controller;
 
 import com.bikkadIt.req_POC.Service.EmployeeService;
 import com.bikkadIt.req_POC.dtos.EmployeeDto;
+import com.bikkadIt.req_POC.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -21,4 +21,10 @@ public class EmployeeController {
         EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
+
+//    @GetMapping("/employees/{mgrId}")
+//    public ResponseEntity<List<EmployeeDto>> getEmployeesByManagerId(@PathVariable String mgrId) {
+//        List<EmployeeDto> employeesDto = employeeService.getEmployeesByManagerId(mgrId);
+//        return new ResponseEntity<>(employeesDto, HttpStatus.OK);
+//    }
 }

@@ -22,4 +22,10 @@ public class BranchController {
         BranchDto savedBranch = branchService.createBranch(branchDto);
         return new ResponseEntity<>(savedBranch, HttpStatus.CREATED);
     }
+
+    @PostMapping("branches/departments")
+    public ResponseEntity<BranchDto> createBranchWithDepartments(@RequestBody BranchDto branchDto) {
+        BranchDto createdBranch = branchService.createBranchWithDepartments(branchDto);
+        return new ResponseEntity<>(createdBranch, HttpStatus.CREATED);
+    }
 }

@@ -20,8 +20,8 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public DepartmentDto createDepartment(DepartmentDto departmentDto) {
 
-        String deptId = UUID.randomUUID().toString();
-        departmentDto.setDepartmentId(deptId);
+//        String deptId = UUID.randomUUID().toString();
+//        departmentDto.setDepartmentId(deptId);
         Department department = this.modelMapper.map(departmentDto, Department.class);
         Department save = this.departmentRepository.save(department);
 

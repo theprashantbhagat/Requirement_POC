@@ -20,8 +20,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {
-        String empId = UUID.randomUUID().toString();
-        employeeDto.setEmployeeId(empId);
+//        String empId = UUID.randomUUID().toString();
+//        employeeDto.setEmployeeId(empId);
         Employee employee = this.modelMapper.map(employeeDto, Employee.class);
         Employee save = this.employeeRepository.save(employee);
 

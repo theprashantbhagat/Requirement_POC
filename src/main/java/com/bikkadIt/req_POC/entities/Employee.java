@@ -17,13 +17,14 @@ public class Employee {
 
 
     @Id
-    private String employeeId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer employeeId;
 
     private String employeeName;
 
     private Double employeeSalary;
 
-    private String mgrId;
+    private Integer mgrId;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
