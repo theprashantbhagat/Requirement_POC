@@ -26,7 +26,7 @@ public class Department {
     @JoinColumn(name = "branch_id")
    private Branch branch;
 
-    @OneToMany
+    @OneToMany(mappedBy = "department")
     private List<Employee> employees=new ArrayList<>();
 
 

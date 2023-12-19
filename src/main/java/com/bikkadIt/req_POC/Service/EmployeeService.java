@@ -9,4 +9,8 @@ public interface EmployeeService {
     EmployeeDto createEmployee(EmployeeDto employeeDto);
 
     EmployeeDto getEmployeesByMgrId(Integer mgrId);
+
+    EmployeeDto createEmployeeWithDepartment(EmployeeDto employeeDto,Integer departmentId);
+
+    EmployeeDto getEmployeeByDepartmentId(Integer DepartmentId);
 }

@@ -29,4 +29,13 @@ public class EmployeeController {
         EmployeeDto employeesByMgrId = employeeService.getEmployeesByMgrId(mgrId);
         return new ResponseEntity<>(employeesByMgrId, HttpStatus.OK);
     }
+
+    @GetMapping("/employees/{departmentId}")
+    public ResponseEntity<EmployeeDto> getEmployeeByDepartmentId(@PathVariable Integer departmentId){
+
+        EmployeeDto employeeByDepartmentId = employeeService.getEmployeeByDepartmentId(departmentId);
+        return new ResponseEntity<>(employeeByDepartmentId,HttpStatus.OK);
+    }
+
+
 }

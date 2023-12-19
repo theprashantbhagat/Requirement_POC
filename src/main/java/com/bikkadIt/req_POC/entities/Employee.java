@@ -26,7 +26,7 @@ public class Employee {
 
     private Integer mgrId;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "department_id")
     private Department department;
 }
