@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface DepartmentRepository extends JpaRepository<Department,Integer> {
 
-    List<Department> findByBranch_BranchId(Integer branchId);
+//    List<Department> findByBranch(Integer branchId);
 }

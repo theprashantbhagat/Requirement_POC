@@ -16,15 +16,17 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+
+
     @PostMapping("/employees")
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
         EmployeeDto savedEmployee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
-//    @GetMapping("/employees/{mgrId}")
-//    public ResponseEntity<List<EmployeeDto>> getEmployeesByManagerId(@PathVariable String mgrId) {
-//        List<EmployeeDto> employeesDto = employeeService.getEmployeesByManagerId(mgrId);
-//        return new ResponseEntity<>(employeesDto, HttpStatus.OK);
-//    }
+    @GetMapping("/employees")
+    public ResponseEntity<EmployeeDto> getEmployeesByManagerId(@RequestParam Integer mgrId) {
+        EmployeeDto employeesByMgrId = employeeService.getEmployeesByMgrId(mgrId);
+        return new ResponseEntity<>(employeesByMgrId, HttpStatus.OK);
+    }
 }

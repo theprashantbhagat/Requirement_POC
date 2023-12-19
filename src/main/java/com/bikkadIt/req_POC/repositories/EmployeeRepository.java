@@ -7,5 +7,5 @@ import java.util.List;
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
     List<Employee> findByMgrId(Integer mgrId);
-    List<Employee> findByDepartment_DepartmentId(Integer departmentId);
+//    Employee findByDepartment(Integer departmentId);
 }

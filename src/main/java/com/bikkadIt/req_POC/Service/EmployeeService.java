@@ -8,5 +8,5 @@ import java.util.List;
 public interface EmployeeService {
     EmployeeDto createEmployee(EmployeeDto employeeDto);
 
-//    List<EmployeeDto> getEmployeesByManagerId(String mgrId);
+    EmployeeDto getEmployeesByMgrId(Integer mgrId);
 }

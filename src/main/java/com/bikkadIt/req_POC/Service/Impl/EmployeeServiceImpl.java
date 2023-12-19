@@ -8,6 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -20,11 +21,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {
-//        String empId = UUID.randomUUID().toString();
-//        employeeDto.setEmployeeId(empId);
+
         Employee employee = this.modelMapper.map(employeeDto, Employee.class);
         Employee save = this.employeeRepository.save(employee);
-
         return this.modelMapper.map(save,EmployeeDto.class);
     }
+
+    @Override
+    public EmployeeDto getEmployeesByMgrId(Integer mgrId) {
+
+        List<Employee> employees = this.employeeRepository.findByMgrId(mgrId);
+
+        return this.modelMapper.map(employees,EmployeeDto.class);
+    }
+
+
 }
