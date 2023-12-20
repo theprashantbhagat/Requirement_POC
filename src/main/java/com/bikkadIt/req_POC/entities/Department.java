@@ -20,7 +20,7 @@ public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer departmentId;
 
-    private String departmentName;
+    private String name;
 
     @ManyToOne
     @JoinColumn(name = "branch_id")

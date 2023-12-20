@@ -12,5 +12,7 @@ public interface EmployeeService {
 
     EmployeeDto createEmployeeWithDepartment(EmployeeDto employeeDto,Integer departmentId);
 
-    EmployeeDto getEmployeeByDepartmentId(Integer DepartmentId);
+    List<EmployeeDto> getEmployeeByDepartmentId(Integer departmentId);
+
+    List<EmployeeDto> getEmployeesWithHighestSalaryInEachDepartment();
 }

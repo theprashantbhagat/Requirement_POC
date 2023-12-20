@@ -20,9 +20,9 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer employeeId;
 
-    private String employeeName;
+    private String name;
 
-    private Double employeeSalary;
+    private Double salary;
 
     private Integer mgrId;
 

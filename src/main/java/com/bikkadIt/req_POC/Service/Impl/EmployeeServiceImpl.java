@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -50,11 +51,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public EmployeeDto getEmployeeByDepartmentId(Integer DepartmentId) {
+    public List<EmployeeDto> getEmployeeByDepartmentId(Integer departmentId) {
 
-        Department department = this.departmentRepository.findById(DepartmentId).get();
-        List<Employee> employees = department.getEmployees();
-        return this.modelMapper.map(employees,EmployeeDto.class);
+        List<Employee> employee = this.employeeRepository.findByDepartmentDepartmentId(departmentId);
+        return employee.stream().map(e->this.modelMapper.map(e,EmployeeDto.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EmployeeDto> getEmployeesWithHighestSalaryInEachDepartment() {
+
+        List<Employee> emps = employeeRepository.findEmployeesWithHighestSalaryInEachDepartment();
+        return emps.stream().map(e->this.modelMapper.map(e,EmployeeDto.class)).collect(Collectors.toList());
     }
 
 

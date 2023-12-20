@@ -31,11 +31,16 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{departmentId}")
-    public ResponseEntity<EmployeeDto> getEmployeeByDepartmentId(@PathVariable Integer departmentId){
+    public ResponseEntity<List<EmployeeDto>> getEmployeeByDepartmentId(@PathVariable Integer departmentId){
 
-        EmployeeDto employeeByDepartmentId = employeeService.getEmployeeByDepartmentId(departmentId);
-        return new ResponseEntity<>(employeeByDepartmentId,HttpStatus.OK);
+        List<EmployeeDto> employee = employeeService.getEmployeeByDepartmentId(departmentId);
+        return new ResponseEntity<>(employee,HttpStatus.OK);
     }
 
+    @GetMapping("/employees/highestSalaryEmp")
+    public ResponseEntity<List<EmployeeDto>> getEmployeesWithHighestSalaryInEachDepartment() {
+        List<EmployeeDto> emplo = employeeService.getEmployeesWithHighestSalaryInEachDepartment();
+        return new ResponseEntity<>(emplo,HttpStatus.OK);
+    }
 
 }

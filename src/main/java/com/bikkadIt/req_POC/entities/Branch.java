@@ -19,7 +19,7 @@ public class Branch {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer branchId;
 
-    private String branchName;
+    private String name;
 
     @OneToMany(mappedBy = "branch")
     private List<Department> departments=new ArrayList<>();
